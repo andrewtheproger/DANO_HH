@@ -2,8 +2,8 @@ def filter_dataset(df,
                    higher_required=False,
                    salary_upper_limit=10 ** 20,
                    salary_lower_limit=0,
-                   only_initial_response=True,
-                   only_final_invitation=True,
+                   only_initial_response=False,
+                   only_final_invitation=False,
                    required_exp=0):
     res = df.copy()
     res = res.dropna(how="any")
