@@ -4,10 +4,13 @@ def filter_dataset(df,
                    salary_lower_limit=0,
                    only_initial_response=False,
                    only_final_invitation=False,
-                   required_exp=0):
+                   required_exp=0,
+                   birth_max=1922,
+                   birth_min=2023):
     res = df.copy()
     res = res.dropna(how="any")
-    res = res[res["year_of_birth"] > 1922]
+    res = res[res["year_of_birth"] < birth_min]
+    res = res[res["year_of_birth"] > birth_max]
     res = res[res["expected_salary"] > salary_lower_limit]
     res = res[res["compensation_to"] > salary_lower_limit]
     res = res[res["compensation_from"] > salary_lower_limit]
