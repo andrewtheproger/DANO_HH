@@ -19,12 +19,13 @@ for profession in professions:
     fig, ax = plt.subplots(figsize=(10, 10))
     temp_df = df[(df["profession"] == profession) & (df["young"] == 0)]
     temp_df = temp_df.sort_values('age').reset_index()
-    p = mannwhitneyu(temp_df[temp_df["elderly"] == 1], temp_df[temp_df["middle_aged"] == 1])[1]
+    p = mannwhitneyu(temp_df[temp_df["elderly"] == 1]['expected_salary'],
+                     temp_df[temp_df["middle_aged"] == 1]['expected_salary'])[1]
     fig = sns.barplot(y="expected_salary", x="elderly", data=temp_df)
     fig = ax.get_figure()
     if profession == "Менеджер/руководитель АХО":
         profession = "Менеджер АХО"
     plt.ylabel('Зарплата, руб.')
-    plt.suptitle(f'{p < 0.05} "{profession}"')
+    plt.suptitle(f'{str(round(p, 3))} "{profession}"')
 
     fig.savefig("charts/Профессии_среднее_по_двум_группам/" + profession + "_" + "женщины" + '.png')
