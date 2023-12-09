@@ -39,6 +39,4 @@ def main(name):
         print(column, correlation_categorical_numerical(df["gender"], df[column]))
 
 
-
-
 main("hh_ru_dataset.csv")

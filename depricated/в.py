@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-df = pd.read_csv('hh_ru_dataset.csv', sep=',')
+df = pd.read_csv('../hh_ru_dataset.csv', sep=',')
 df = df[df["profession"] == "Юрист"]
 counts = df['resume_id'].value_counts()
 df['Частота'] = df['resume_id'].map(counts)
