@@ -12,6 +12,7 @@ new_values = {
     "female": 0,
     "male": 1
 }
+plt.style.use("dark_background")
 
 
 def main(name):
@@ -33,7 +34,7 @@ def main(name):
     for column in ["expected_salary", "compensation_from", "compensation_to", "year_of_birth",
                    "work_experience_months", 'freq']:
         fig, ax = plt.subplots()
-        fig = sns.histplot(x=column, data=df, bins=20, stat='density', common_norm=False, kde=True)
+        fig = sns.histplot(x=column, data=df, bins=20, stat='density', common_norm=False, kde=True, palette="rocket")
         fig = ax.get_figure()
         fig.savefig("charts/" + column + "_check_elderly" + '.png')
         print(column, correlation_categorical_numerical(df["gender"], df[column]))
