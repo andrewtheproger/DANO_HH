@@ -1,11 +1,9 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import numpy as np
-from scipy.stats import ks_2samp, shapiro, mannwhitneyu, kendalltau
-from filter import filter_dataset
-from correlation_categorical_numerical import correlation_categorical_numerical
-from correlation_categorical_categorical import correlation_categorical_categorical
+from services.filter import filter_dataset
+from services.correlation_categorical_numerical import correlation_categorical_numerical
+
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 new_values = {
