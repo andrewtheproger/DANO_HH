@@ -30,7 +30,7 @@ groups = {
         'Административный персонал': ['Администратор', 'Делопроизводитель, архивариус', 'Менеджер/руководитель АХО', 'Оператор ПК, оператор базы данных', 'Офис-менеджер', 'Секретарь, помощник руководителя, ассистент']
     }
 specialties = groups.keys()
-df = pd.read_csv('hh_ru_dataset.csv', sep=',')
+df = pd.read_csv('../hh_ru_dataset.csv', sep=',')
 df["age"] = df["year_of_birth"].apply(lambda x: 2023 - x)
 df['age_category'] = df["year_of_birth"].apply(
     lambda x: f"{str((2023 - x) // 10 * 10)}-{str((2023 - x) // 10 * 10 + 10)}")
